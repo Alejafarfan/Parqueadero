@@ -90,15 +90,15 @@ class RegistroVehiculos:
         if not self.vehiculos:
             self.label_registros.config(text="No hay registros disponibles", fg="blue")
             return
-
-        registros_texto = "\n".join(
-            [f"{v['Placa']} - {v['Marca']} - {v['Color']} - {v['Tipo']} - {v['Hora Ingreso']}" for v in self.vehiculos]
-        )
+        registros_texto = ""
+        for v in self.vehiculos:
+            registros_texto += f"{v['Placa']} - {v['Marca']} - {v['Color']} - {v['Tipo']} - {v['Hora Ingreso']}\n"
 
         self.label_registros.config(text=registros_texto)
         print("\n--- REGISTROS DE VEHÍCULOS ---")
         for vehiculo in self.vehiculos:
             print(vehiculo)
+
 
 # Crear instancia del formulario
 RegistroVehiculos()
